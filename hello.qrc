@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/">
+        <file>one.svg</file>
+        <file>alarm_32x32.png</file>
+        <file>lamp_off.png</file>
+        <file>lamp_on.png</file>
+        <file>sgr_v_g_big.png</file>
+        <file>sgr_v_w_big.png</file>
+        <file>sgr_c_g_off_big.png</file>
+        <file>sgr_c_g_on_big.png</file>
+        <file>sgr_c_v_off_big.png</file>
+        <file>sgr_c_v_on_big.png</file>
+        <file>valve_left_off_big.png</file>
+        <file>valve_left_on_big.png</file>
+        <file>valve_right_off_big.png</file>
+        <file>valve_right_on_big.png</file>
+    </qresource>
+</RCC>
