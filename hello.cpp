@@ -43,7 +43,7 @@ Hello::Hello(QWidget *parent) :
     connect(ui->cbOut_6,SIGNAL(toggled(bool)),this,SLOT(updateValue(bool)));
     connect(ui->cbOut_7,SIGNAL(toggled(bool)),this,SLOT(updateValue(bool)));
 
-    MySpiDev *spi = new MySpiDev(1000);
+    MySpiDev *spi = new MySpiDev(500);
     spi->start(QThread::LowPriority);
     connect(spi,SIGNAL(valueUpdated(QVector<int>)),this,SLOT(updateAdc(QVector<int>)));
 }
@@ -104,6 +104,6 @@ void Hello::updateAdc(QVector<int> values)
             << ui->Ai_7;
     foreach(int val,values)
     {
-        le[i++]->setText(QString("0x%1").arg(val,4,16,QChar('0')));
+        le[i++]->setText(QString("%1").arg(val));
     }
 }

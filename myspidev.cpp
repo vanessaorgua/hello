@@ -2,6 +2,7 @@
 #include <QTimer>
 #include <QFile>
 #include <QDebug>
+#include <QtEndian>
 
 #include <unistd.h>
 #include <stdlib.h>
@@ -43,6 +44,11 @@ MySpiDev::~MySpiDev()
     delete tmr;
     if(fd>-1)
         ::close(fd);
+
+    QFile ex("/sys/class/gpio/unexport");
+    ex.open(QIODevice::WriteOnly);
+    ex.write("194"); // GPG2
+    ex.close();
 
 }
 
@@ -98,6 +104,7 @@ void MySpiDev::updateData()
     xfer[1].rx_buf = (__u64) (&in);
     xfer[1].len = 2;
 
+
     setCS(false);
     status = ioctl(fd, SPI_IOC_MESSAGE(2), xfer);
     setCS(true);
@@ -115,13 +122,15 @@ void MySpiDev::updateData()
         xfer[1].rx_buf = (__u64) (&in);
         xfer[1].len = 2;
 
+
         setCS(false);
         status = ioctl(fd, SPI_IOC_MESSAGE(2), xfer);
         setCS(true);
         if (status < 0) {
            qDebug() << "SPI_IOC_MESSAGE" << in << cmd[i];
         }
-        res << in;
+
+        res <<  qToBigEndian(in);
 
     }
     emit valueUpdated(res);
