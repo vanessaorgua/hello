@@ -18,7 +18,7 @@
 
 MySpiDev::MySpiDev(int interval) : fd(-1)
 {
-    QFile ex("/sys/class/gpio/export");
+/*    QFile ex("/sys/class/gpio/export");
     ex.open(QIODevice::WriteOnly);
     ex.write("194"); // GPG2
     ex.close();
@@ -31,7 +31,7 @@ MySpiDev::MySpiDev(int interval) : fd(-1)
     QFile v("/sys/class/gpio/gpio194/value");
     v.open(QIODevice::WriteOnly);
     v.write("1");
-    v.close();
+    v.close(); */
 
 
     tmr=new QTimer;
@@ -44,12 +44,12 @@ MySpiDev::~MySpiDev()
     delete tmr;
     if(fd>-1)
         ::close(fd);
-
+/*
     QFile ex("/sys/class/gpio/unexport");
     ex.open(QIODevice::WriteOnly);
     ex.write("194"); // GPG2
     ex.close();
-
+*/
 }
 
 void MySpiDev::run()
@@ -59,8 +59,8 @@ void MySpiDev::run()
     if(fd>-1) // якщо порт відкрили
     {
         // настроїти для роботи
-        __u8  mode=0, lsb=0, bits=0;
-        __u32 speed=500000;
+        __u8  mode=1, lsb=0, bits=0;
+        __u32 speed=50000;
         if (ioctl(fd, SPI_IOC_WR_MODE, &mode) < 0) {
             qDebug() << "SPI rd_mode";
             return;
@@ -89,43 +89,40 @@ void MySpiDev::run()
 
 void MySpiDev::updateData()
 {
-    short cmd[8]={0x0800,0x1000,0x1800,0x2000,0x2800,0x3000,0x3800,0x0200};
+    // short cmd[8]={0x0800,0x1000,0x1800,0x2000,0x2800,0x3000,0x3800,0x0200};
+    short    cmd[8]={0x0008,0x0010,0x0018,0x0002};
+
     QVector<int> res;
 
-    struct spi_ioc_transfer xfer[2];
-    short in,out=0;
-    int         status;
+    struct spi_ioc_transfer xfer[1];
+    short in,out=0x0000;
+    int status;
 
     memset(xfer, 0, sizeof xfer);
 
     xfer[0].tx_buf = (__u64) (&out);
+    xfer[0].rx_buf = (__u64) (&in);
     xfer[0].len = 2;
 
-    xfer[1].rx_buf = (__u64) (&in);
-    xfer[1].len = 2;
-
-
-    setCS(false);
-    status = ioctl(fd, SPI_IOC_MESSAGE(2), xfer);
-    setCS(true);
+//    setCS(false);
+    status = ioctl(fd, SPI_IOC_MESSAGE(1), xfer);
+//    setCS(true);
 
     if (status < 0) {
        qDebug() << "SPI_IOC_MESSAGE" << in << out;
     }
-    for(int i=0;i<8;++i)
+
+    for(int i=0;i<4;++i)
     {
-        memset(xfer, 0, sizeof xfer);
-
-        xfer[0].tx_buf = (__u64) cmd+i;
-        xfer[0].len = 2;
-
-        xfer[1].rx_buf = (__u64) (&in);
-        xfer[1].len = 2;
-
-
-        setCS(false);
-        status = ioctl(fd, SPI_IOC_MESSAGE(2), xfer);
-        setCS(true);
+        //memset(xfer, 0, sizeof xfer);
+        out=cmd[i];
+        //xfer[0].tx_buf = (__u64) (&out);
+        //xfer[0].rx_buf = (__u64) (&in);
+        //xfer[0].len = 2;
+        usleep(10);
+//        setCS(false);
+        status = ioctl(fd, SPI_IOC_MESSAGE(1), xfer);
+//        setCS(true);
         if (status < 0) {
            qDebug() << "SPI_IOC_MESSAGE" << in << cmd[i];
         }
@@ -133,9 +130,11 @@ void MySpiDev::updateData()
         res <<  qToBigEndian(in);
 
     }
+    //setCS(true);
     emit valueUpdated(res);
 }
 
+/*
 void   MySpiDev::setCS(bool v)
 {
     QFile fv("/sys/class/gpio/gpio194/value");
@@ -143,3 +142,4 @@ void   MySpiDev::setCS(bool v)
     fv.write(v?"1":"0");
     fv.close();
 }
+*/

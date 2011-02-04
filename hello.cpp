@@ -12,6 +12,9 @@
 
 #include "myspidev.h"
 
+#include <trendchart.h>
+#include <QVBoxLayout>
+
 Hello::Hello(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Hello)
@@ -46,6 +49,13 @@ Hello::Hello(QWidget *parent) :
     MySpiDev *spi = new MySpiDev(500);
     spi->start(QThread::LowPriority);
     connect(spi,SIGNAL(valueUpdated(QVector<int>)),this,SLOT(updateAdc(QVector<int>)));
+
+    trc = new TrendChart(this);
+    QVBoxLayout *vbl= new QVBoxLayout(ui->trend);
+    vbl->addWidget(trc);
+    ui->trend->setLayout(vbl);
+
+
 }
 
 Hello::~Hello()
@@ -93,7 +103,9 @@ void Hello::updateValue(bool v)
 void Hello::updateAdc(QVector<int> values)
 {
     int i=0;
-    QVector<QLineEdit*> le;
+    QVector<QLineEdit*> le,le2;
+    QVector<double> point;
+
     le << ui->Ai_0
             << ui->Ai_1
             << ui->Ai_2
@@ -102,8 +114,21 @@ void Hello::updateAdc(QVector<int> values)
             << ui->Ai_5
             << ui->Ai_6
             << ui->Ai_7;
+
+    le2 << ui->Ai_8
+            << ui->Ai_9
+            << ui->Ai_10
+            << ui->Ai_11
+            << ui->Ai_12
+            << ui->Ai_13
+            << ui->Ai_14
+            << ui->Ai_15;
+
     foreach(int val,values)
     {
-        le[i++]->setText(QString("%1").arg(val));
+        le2[i]->setText(QString("%1").arg(val));
+        le[i++]->setText(QString("0x%1").arg(val,4,16,QChar('0')));
+        point << val;
     }
+    trc->addPoint(point);
 }

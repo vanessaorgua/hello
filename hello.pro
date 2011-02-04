@@ -26,3 +26,13 @@ QMAKE_POST_LINK = arm-linux-gnueabi-strip \
     cp \
     $(TARGET) \
     /home/ftp/arm
+
+
+QMAKE_LIBDIR += ../lib
+LIBS += -lrcada_client
+INCLUDEPATH += ../lib/include
+
+MOC_DIR = build
+OBJECTS_DIR = build
+UI_DIR = build
+RCC_DIR = build
