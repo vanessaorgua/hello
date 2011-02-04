@@ -23,7 +23,7 @@ private slots:
 private:
     QTimer *tmr;
     int fd;
-    void setCS(bool v);
+    //void setCS(bool v);
 };
 
 #endif // MYSPIDEV_H

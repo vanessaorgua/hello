@@ -7,6 +7,8 @@
 
 #include "qgpio.h"
 
+class TrendChart;
+
 namespace Ui {
     class Hello;
 }
@@ -28,7 +30,7 @@ protected:
 
 private:
     Ui::Hello *ui;
-
+    TrendChart *trc;
     QGpio *io;
 
 };
