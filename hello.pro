@@ -8,12 +8,14 @@ SOURCES += main.cpp \
     dialog.cpp \
     termupdatethread.cpp \
     qgpio.cpp \
-    myspidev.cpp
+    myspidev.cpp \
+    trendchart.cpp
 HEADERS += hello.h \
     dialog.h \
     termupdatethread.h \
     qgpio.h \
-    myspidev.h
+    myspidev.h \
+    trendchart.h
 FORMS += hello.ui \
     dialog.ui
 LIBS += -lts
@@ -26,12 +28,6 @@ QMAKE_POST_LINK = arm-linux-gnueabi-strip \
     cp \
     $(TARGET) \
     /home/ftp/arm
-
-
-QMAKE_LIBDIR += ../lib
-LIBS += -lrcada_client
-INCLUDEPATH += ../lib/include
-
 MOC_DIR = build
 OBJECTS_DIR = build
 UI_DIR = build
