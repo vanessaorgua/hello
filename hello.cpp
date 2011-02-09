@@ -31,7 +31,6 @@ Hello::Hello(QWidget *parent) :
     name //<< "/sys/devices/w1 bus master/28-000001ba40af"
             << "/sys/devices/w1 bus master/28-000001ba1fe0";
 
-    qDebug() << "Create thread";
 
     TermUpdateThread *t1=new TermUpdateThread(name);
     t1->start(QThread::LowPriority);
@@ -46,7 +45,7 @@ Hello::Hello(QWidget *parent) :
     connect(ui->cbOut_6,SIGNAL(toggled(bool)),this,SLOT(updateValue(bool)));
     connect(ui->cbOut_7,SIGNAL(toggled(bool)),this,SLOT(updateValue(bool)));
 
-    MySpiDev *spi = new MySpiDev(500);
+    MySpiDev *spi = new MySpiDev(250);
     spi->start(QThread::LowPriority);
     connect(spi,SIGNAL(valueUpdated(QVector<int>)),this,SLOT(updateAdc(QVector<int>)));
 

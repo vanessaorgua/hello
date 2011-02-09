@@ -18,7 +18,6 @@ void TermUpdateThread::run()
     tmr->setInterval(3000);
     tmr->start();
     connect(tmr,SIGNAL(timeout()),this,SLOT(updateData()));
-    qDebug() << "Create event loop";
     exec();    // це запустить цикл обробника подій
 }
 

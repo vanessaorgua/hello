@@ -18,21 +18,6 @@
 
 MySpiDev::MySpiDev(int interval) : fd(-1)
 {
-/*    QFile ex("/sys/class/gpio/export");
-    ex.open(QIODevice::WriteOnly);
-    ex.write("194"); // GPG2
-    ex.close();
-
-    QFile d("/sys/class/gpio/gpio194/direction");
-    d.open(QIODevice::WriteOnly);
-    d.write("out");
-    d.close();
-
-    QFile v("/sys/class/gpio/gpio194/value");
-    v.open(QIODevice::WriteOnly);
-    v.write("1");
-    v.close(); */
-
 
     tmr=new QTimer;
     tmr->setInterval(interval);
@@ -44,12 +29,6 @@ MySpiDev::~MySpiDev()
     delete tmr;
     if(fd>-1)
         ::close(fd);
-/*
-    QFile ex("/sys/class/gpio/unexport");
-    ex.open(QIODevice::WriteOnly);
-    ex.write("194"); // GPG2
-    ex.close();
-*/
 }
 
 void MySpiDev::run()
@@ -60,7 +39,7 @@ void MySpiDev::run()
     {
         // настроїти для роботи
         __u8  mode=1, lsb=0, bits=0;
-        __u32 speed=50000;
+        __u32 speed=500000;
         if (ioctl(fd, SPI_IOC_WR_MODE, &mode) < 0) {
             qDebug() << "SPI rd_mode";
             return;
@@ -104,9 +83,7 @@ void MySpiDev::updateData()
     xfer[0].rx_buf = (__u64) (&in);
     xfer[0].len = 2;
 
-//    setCS(false);
     status = ioctl(fd, SPI_IOC_MESSAGE(1), xfer);
-//    setCS(true);
 
     if (status < 0) {
        qDebug() << "SPI_IOC_MESSAGE" << in << out;
@@ -114,15 +91,8 @@ void MySpiDev::updateData()
 
     for(int i=0;i<4;++i)
     {
-        //memset(xfer, 0, sizeof xfer);
         out=cmd[i];
-        //xfer[0].tx_buf = (__u64) (&out);
-        //xfer[0].rx_buf = (__u64) (&in);
-        //xfer[0].len = 2;
-        usleep(10);
-//        setCS(false);
         status = ioctl(fd, SPI_IOC_MESSAGE(1), xfer);
-//        setCS(true);
         if (status < 0) {
            qDebug() << "SPI_IOC_MESSAGE" << in << cmd[i];
         }
@@ -130,16 +100,6 @@ void MySpiDev::updateData()
         res <<  qToBigEndian(in);
 
     }
-    //setCS(true);
     emit valueUpdated(res);
 }
 
-/*
-void   MySpiDev::setCS(bool v)
-{
-    QFile fv("/sys/class/gpio/gpio194/value");
-    fv.open(QIODevice::WriteOnly);
-    fv.write(v?"1":"0");
-    fv.close();
-}
-*/

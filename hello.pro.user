@@ -206,6 +206,7 @@
     <value type="QString">KDE_SESSION_UID=1000</value>
     <value type="QString">KDE_SESSION_VERSION=4</value>
     <value type="QString">LANG=uk_UA.UTF-8</value>
+    <value type="QString">LANGUAGE=</value>
     <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator</value>
     <value type="QString">LOGNAME=vanessa</value>
     <value type="QString">OLDPWD=/home/vanessa</value>
@@ -260,6 +261,7 @@
     <value type="QString">KDE_SESSION_UID=1000</value>
     <value type="QString">KDE_SESSION_VERSION=4</value>
     <value type="QString">LANG=uk_UA.UTF-8</value>
+    <value type="QString">LANGUAGE=</value>
     <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator</value>
     <value type="QString">LOGNAME=vanessa</value>
     <value type="QString">OLDPWD=/home/vanessa</value>
