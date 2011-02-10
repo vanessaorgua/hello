@@ -39,7 +39,7 @@ void MySpiDev::run()
     {
         // настроїти для роботи
         __u8  mode=1, lsb=0, bits=0;
-        __u32 speed=500000;
+        __u32 speed=1000000;
         if (ioctl(fd, SPI_IOC_WR_MODE, &mode) < 0) {
             qDebug() << "SPI rd_mode";
             return;
@@ -69,12 +69,13 @@ void MySpiDev::run()
 void MySpiDev::updateData()
 {
     // short cmd[8]={0x0800,0x1000,0x1800,0x2000,0x2800,0x3000,0x3800,0x0200};
-    short    cmd[8]={0x0008,0x0010,0x0018,0x0002};
+    //short    cmd[8]={0x0008,0x0010,0x0018,0x0002};
+    short    cmd[8]={0x0010,0x0008,0x0000,0x0002};
 
     QVector<int> res;
 
     struct spi_ioc_transfer xfer[1];
-    short in,out=0x0000;
+    short in,out=0x0018;
     int status;
 
     memset(xfer, 0, sizeof xfer);

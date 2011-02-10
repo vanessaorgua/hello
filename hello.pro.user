@@ -192,7 +192,7 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Release</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-izw7oHbrzx,guid=7f3b3b8343c59037e3eb2fbd00000034</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-RIQn4eB5MO,guid=99c59a4153023730cf06d52300052491</value>
     <value type="QString">DESKTOP_SESSION=default</value>
     <value type="QString">DISPLAY=:0.0</value>
     <value type="QString">DM_CONTROL=/var/run/xdmctl</value>
@@ -206,7 +206,6 @@
     <value type="QString">KDE_SESSION_UID=1000</value>
     <value type="QString">KDE_SESSION_VERSION=4</value>
     <value type="QString">LANG=uk_UA.UTF-8</value>
-    <value type="QString">LANGUAGE=</value>
     <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator</value>
     <value type="QString">LOGNAME=vanessa</value>
     <value type="QString">OLDPWD=/home/vanessa</value>
@@ -214,16 +213,16 @@
     <value type="QString">PWD=/home/vanessa</value>
     <value type="QString">QTDIR=/opt/usr/</value>
     <value type="QString">QT_PLUGIN_PATH=/home/vanessa/.kde/lib/kde4/plugins/:/usr/lib/kde4/plugins/</value>
-    <value type="QString">SESSION_MANAGER=local/vano:@/tmp/.ICE-unix/2041,unix/vano:/tmp/.ICE-unix/2041</value>
+    <value type="QString">SESSION_MANAGER=local/vano:@/tmp/.ICE-unix/5753,unix/vano:/tmp/.ICE-unix/5753</value>
     <value type="QString">SHELL=/bin/zsh</value>
     <value type="QString">SHLVL=0</value>
-    <value type="QString">SSH_AGENT_PID=1967</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-ofATyC1942/agent.1942</value>
+    <value type="QString">SSH_AGENT_PID=5679</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-pdtekB5654/agent.5654</value>
     <value type="QString">USER=vanessa</value>
     <value type="QString">WINDOWPATH=7</value>
     <value type="QString">XCURSOR_THEME=Oxygen_Black</value>
     <value type="QString">XDG_DATA_DIRS=/usr/share:/usr/share:/usr/local/share</value>
-    <value type="QString">XDG_SESSION_COOKIE=3822653352b5377eee535b9e00000278-1296726807.977767-1569298729</value>
+    <value type="QString">XDG_SESSION_COOKIE=3822653352b5377eee535b9e00000278-1297063838.258211-1724888312</value>
     <value type="QString">XDM_MANAGED=method=classic</value>
     <value type="QString">_=/usr/bin/ssh-agent</value>
    </valuelist>
@@ -247,7 +246,7 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Release</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-izw7oHbrzx,guid=7f3b3b8343c59037e3eb2fbd00000034</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-RIQn4eB5MO,guid=99c59a4153023730cf06d52300052491</value>
     <value type="QString">DESKTOP_SESSION=default</value>
     <value type="QString">DISPLAY=:0.0</value>
     <value type="QString">DM_CONTROL=/var/run/xdmctl</value>
@@ -261,7 +260,6 @@
     <value type="QString">KDE_SESSION_UID=1000</value>
     <value type="QString">KDE_SESSION_VERSION=4</value>
     <value type="QString">LANG=uk_UA.UTF-8</value>
-    <value type="QString">LANGUAGE=</value>
     <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator</value>
     <value type="QString">LOGNAME=vanessa</value>
     <value type="QString">OLDPWD=/home/vanessa</value>
@@ -269,16 +267,16 @@
     <value type="QString">PWD=/home/vanessa</value>
     <value type="QString">QTDIR=/opt/usr/</value>
     <value type="QString">QT_PLUGIN_PATH=/home/vanessa/.kde/lib/kde4/plugins/:/usr/lib/kde4/plugins/</value>
-    <value type="QString">SESSION_MANAGER=local/vano:@/tmp/.ICE-unix/2041,unix/vano:/tmp/.ICE-unix/2041</value>
+    <value type="QString">SESSION_MANAGER=local/vano:@/tmp/.ICE-unix/5753,unix/vano:/tmp/.ICE-unix/5753</value>
     <value type="QString">SHELL=/bin/zsh</value>
     <value type="QString">SHLVL=0</value>
-    <value type="QString">SSH_AGENT_PID=1967</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-ofATyC1942/agent.1942</value>
+    <value type="QString">SSH_AGENT_PID=5679</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-pdtekB5654/agent.5654</value>
     <value type="QString">USER=vanessa</value>
     <value type="QString">WINDOWPATH=7</value>
     <value type="QString">XCURSOR_THEME=Oxygen_Black</value>
     <value type="QString">XDG_DATA_DIRS=/usr/share:/usr/share:/usr/local/share</value>
-    <value type="QString">XDG_SESSION_COOKIE=3822653352b5377eee535b9e00000278-1296726807.977767-1569298729</value>
+    <value type="QString">XDG_SESSION_COOKIE=3822653352b5377eee535b9e00000278-1297063838.258211-1724888312</value>
     <value type="QString">XDM_MANAGED=method=classic</value>
     <value type="QString">_=/usr/bin/ssh-agent</value>
    </valuelist>
@@ -296,7 +294,7 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Release</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-VADQF9zpmG,guid=051465023e2f6c090ed481ff00069669</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-RIQn4eB5MO,guid=99c59a4153023730cf06d52300052491</value>
     <value type="QString">DESKTOP_SESSION=default</value>
     <value type="QString">DISPLAY=:0.0</value>
     <value type="QString">DM_CONTROL=/var/run/xdmctl</value>
@@ -317,16 +315,16 @@
     <value type="QString">PWD=/home/vanessa</value>
     <value type="QString">QTDIR=/opt/usr/</value>
     <value type="QString">QT_PLUGIN_PATH=/home/vanessa/.kde/lib/kde4/plugins/:/usr/lib/kde4/plugins/</value>
-    <value type="QString">SESSION_MANAGER=local/vano:@/tmp/.ICE-unix/646,unix/vano:/tmp/.ICE-unix/646</value>
+    <value type="QString">SESSION_MANAGER=local/vano:@/tmp/.ICE-unix/5753,unix/vano:/tmp/.ICE-unix/5753</value>
     <value type="QString">SHELL=/bin/zsh</value>
     <value type="QString">SHLVL=0</value>
-    <value type="QString">SSH_AGENT_PID=571</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-yMuEhNu546/agent.546</value>
+    <value type="QString">SSH_AGENT_PID=5679</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-pdtekB5654/agent.5654</value>
     <value type="QString">USER=vanessa</value>
-    <value type="QString">WINDOWPATH=8</value>
+    <value type="QString">WINDOWPATH=7</value>
     <value type="QString">XCURSOR_THEME=Oxygen_Black</value>
     <value type="QString">XDG_DATA_DIRS=/usr/share:/usr/share:/usr/local/share</value>
-    <value type="QString">XDG_SESSION_COOKIE=3822653352b5377eee535b9e00000278-1296026531.336594-1231089864</value>
+    <value type="QString">XDG_SESSION_COOKIE=3822653352b5377eee535b9e00000278-1297063838.258211-1724888312</value>
     <value type="QString">XDM_MANAGED=method=classic</value>
     <value type="QString">_=/usr/bin/ssh-agent</value>
    </valuelist>
