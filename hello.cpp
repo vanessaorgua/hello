@@ -14,6 +14,8 @@
 
 #include <trendchart.h>
 #include <QVBoxLayout>
+#include <QMessageBox>
+#include <QCloseEvent>
 
 Hello::Hello(QWidget *parent) :
     QWidget(parent),
@@ -131,3 +133,16 @@ void Hello::updateAdc(QVector<int> values)
     }
     trc->addPoint(point);
 }
+
+void Hello::closeEvent(QCloseEvent *event)
+{
+    if (QMessageBox::warning(this,tr("Попередження"),tr("Я ж написав вище\"Руками не чіпати!!!!\""),
+                              QMessageBox::Yes|QMessageBox::No,QMessageBox::No) == QMessageBox::Yes) {
+        event->accept();
+    } else {
+        event->ignore();
+    }
+
+}
+
+
